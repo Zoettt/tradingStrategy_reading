@@ -28,8 +28,8 @@ A pipeline-based system that transforms a user topic query (e.g., "AI chips") pl
 Plans:
 - [x] 01-01-PLAN.md -- FRIS foundation: models, exceptions, cache (FRIS-13, FRIS-22)
 - [x] 01-02-PLAN.md -- TopicClassifier with GICS keyword mapping (FRIS-01, FRIS-02)
-- [ ] 01-03-PLAN.md -- StockRepository with yfinance/FMP (FRIS-03, FRIS-20, FRIS-21)
-- [ ] 01-04-PLAN.md -- TopicSearchService orchestration (FRIS-01, FRIS-02, FRIS-03)
+- [x] 01-03-PLAN.md -- StockRepository with yfinance/FMP (FRIS-03, FRIS-20, FRIS-21)
+- [x] 01-04-PLAN.md -- TopicSearchService orchestration (FRIS-01, FRIS-02, FRIS-03)
 
 ### Phase 2: Filtering & Data Fetching
 **Goal**: Users can filter stocks by financial metrics and retrieve earnings data
@@ -71,7 +71,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Infrastructure | 2/4 | In Progress|  |
+| 1. Core Infrastructure | 4/4 | COMPLETED | 2026-03-25 |
 | 2. Filtering & Data Fetching | 0/N | Not started | - |
 | 3. LLM Summarization & Output | 0/N | Not started | - |
 | 4. Integration & Polish | 0/N | Not started | - |
