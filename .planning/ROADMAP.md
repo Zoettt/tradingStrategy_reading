@@ -43,7 +43,11 @@ Plans:
   5. User can combine filters with AND logic; system returns filtered count before full data fetch
   6. System fetches latest earnings data (EPS, revenue, earnings date) and company overview (market cap, P/E, P/B, price, description) for each filtered stock
   7. System fetches earnings guidance (forward EPS) when available and supports quarterly data (Q1-Q4 with year)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [x] 02-01-PLAN.md -- StockFilterService with market cap, P/E, P/B, price filters (FRIS-04 to FRIS-09)
+- [x] 02-02-PLAN.md -- EarningsService for earnings data, overview, guidance (FRIS-10 to FRIS-12, FRIS-14)
 
 ### Phase 3: LLM Summarization & Output
 **Goal**: Users receive structured business summaries in JSON format
@@ -72,6 +76,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Core Infrastructure | 4/4 | COMPLETED | 2026-03-25 |
-| 2. Filtering & Data Fetching | 0/N | Not started | - |
+| 2. Filtering & Data Fetching | 2/2 | COMPLETED | 2026-03-25 |
 | 3. LLM Summarization & Output | 0/N | Not started | - |
 | 4. Integration & Polish | 0/N | Not started | - |

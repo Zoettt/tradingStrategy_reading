@@ -62,3 +62,31 @@ class StockSearchResult:
     matched_industries: list[str]
     search_topic: str
     total_count: int
+
+
+@dataclass
+class EarningsData:
+    """Earnings data for a stock."""
+    ticker: str
+    earnings_date: Optional[str] = None  # ISO format date
+    eps_current: Optional[float] = None  # Trailing EPS (TTM)
+    eps_forward: Optional[float] = None  # Forward EPS from guidance
+    revenue: Optional[float] = None  # Most recent revenue
+    revenue_yoy_change: Optional[float] = None  # YoY change percentage
+    earnings_surprise: Optional[float] = None  # vs estimates if available
+    data_source: str = "yfinance"
+    fetched_at: Optional[str] = None  # ISO timestamp
+
+
+@dataclass
+class QuarterlyData:
+    """Quarterly financial data for a stock."""
+    ticker: str
+    quarter: str  # "Q1", "Q2", "Q3", "Q4"
+    year: int
+    eps: Optional[float] = None
+    revenue: Optional[float] = None
+    revenue_yoy_change: Optional[float] = None
+    report_date: Optional[str] = None  # ISO format date
+    data_source: str = "yfinance"
+    fetched_at: Optional[str] = None  # ISO timestamp
