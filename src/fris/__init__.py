@@ -9,6 +9,7 @@ from src.fris.filter_service import StockFilterService, FilterCriteria
 from src.fris.earnings_service import EarningsService
 from src.fris.llm_client import LLMClient, LLMProvider, LLMError
 from src.fris.summarization_service import SummarizationService
+from src.fris.pipeline import FRISPipeline, PipelineResult
 
 __all__ = [
     "StockInfo",
@@ -37,4 +38,6 @@ __all__ = [
     "LLMProvider",
     "LLMError",
     "SummarizationService",
+    "FRISPipeline",
+    "PipelineResult",
 ]

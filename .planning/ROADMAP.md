@@ -75,7 +75,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 04-01-PLAN.md -- FRISPipeline orchestrator, main.py FastAPI, Dockerfile
+- [x] 04-01-PLAN.md -- FRISPipeline orchestrator, main.py FastAPI, Dockerfile
 
 ## Progress
 
@@ -84,4 +84,4 @@ Plans:
 | 1. Core Infrastructure | 4/4 | COMPLETED | 2026-03-25 |
 | 2. Filtering & Data Fetching | 2/2 | COMPLETED | 2026-03-25 |
 | 3. LLM Summarization & Output | 1/1 | COMPLETED | 2026-03-25 |
-| 4. Integration & Polish | 0/1 | Not started | - |
+| 4. Integration & Polish | 1/1 | COMPLETED | 2026-03-25 |
