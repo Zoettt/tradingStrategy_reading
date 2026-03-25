@@ -72,7 +72,10 @@ Plans:
   2. Pipeline handles partial failures gracefully (some stocks fail while others succeed)
   3. All price data is labeled with data freshness (real-time vs delayed)
   4. System is containerized with Docker and runs via uvicorn workers
-**Plans**: TBD
+**Plans**: 1 plan
+
+Plans:
+- [ ] 04-01-PLAN.md -- FRISPipeline orchestrator, main.py FastAPI, Dockerfile
 
 ## Progress
 
@@ -81,4 +84,4 @@ Plans:
 | 1. Core Infrastructure | 4/4 | COMPLETED | 2026-03-25 |
 | 2. Filtering & Data Fetching | 2/2 | COMPLETED | 2026-03-25 |
 | 3. LLM Summarization & Output | 1/1 | COMPLETED | 2026-03-25 |
-| 4. Integration & Polish | 0/N | Not started | - |
+| 4. Integration & Polish | 0/1 | Not started | - |
