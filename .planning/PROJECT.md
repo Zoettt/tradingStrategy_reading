@@ -20,35 +20,33 @@ A system that takes a **topic + time period** and returns **individual earnings 
 
 ### Validated
 
-(None yet — this is a greenfield project)
+- ✓ **Topic Search** — TopicClassifier maps free-text topics to GICS industries with confidence scoring — v1.0
+- ✓ **Stock Filtering** — StockFilterService with market cap/P/E/P/B/price AND logic filters — v1.0
+- ✓ **Earnings Data** — EarningsService fetches EPS, revenue, guidance, quarterly data — v1.0
+- ✓ **LLM Summaries** — SummarizationService generates structured JSON summaries via GPT-4o-mini/Claude — v1.0
+- ✓ **Data Source** — yfinance primary, FMP fallback, dual TTL cache — v1.0
+- ✓ **Pipeline** — FRISPipeline orchestrator, FastAPI + uvicorn, Docker — v1.0
 
 ### Active
 
-**Core Flow:**
-- [ ] **Topic Search**: User inputs a topic (e.g., "AI Chips") + time period
-- [ ] **Industry Matching**: Match topic to relevant GICS sectors/industries, return list of US stocks in those categories
-- [ ] **Stock Filtering**: Filter results by market cap, PE, PB, price
-- [ ] **Earnings Summaries**: For each filtered stock, generate structured summary covering:
-  - Business model overview (how the company makes money)
-  - Recent performance (revenue, profit, growth)
-  - Competitive landscape (key competitors, market position)
-  - Risk factors (main business risks)
-
-**Data Source:**
-- Primary: Structured financial data from FMP / Yahoo Finance API
-- Supporting: SEC EDGAR for XBRL fundamentals if needed
-
-**Output:**
-- Individual summary per stock (one JSON/markdown document per ticker)
-- Each summary includes: company name, ticker, industry, period, business description, key metrics, competitive position, risks
+**Potential v1.1 improvements (not yet planned):**
+- [ ] Estimate vs actual earnings beat/miss analysis
+- [ ] Peer benchmarking (vs sector median)
+- [ ] Interactive re-filtering without re-fetch
+- [ ] Earnings call transcript summarization
+- [ ] Trend analysis (quarter-over-quarter)
 
 ### Out of Scope
 
-- Raw PDF/HTML filing parsing (LLM analysis of unstructured data)
-- Non-US markets (A-share, HK stocks)
-- Financial ratio calculations from scratch (use pre-calculated from data provider)
-- Portfolio management or trading signals
-- Real-time data streaming
+| Item | Reason |
+|------|--------|
+| Raw PDF/HTML filing parsing | Complexity too high for MVP; structured data sufficient |
+| Non-US markets (A-share, HK stocks) | API complexity and GICS mapping would double scope |
+| Real-time price streaming | Not relevant to earnings analysis; adds API cost |
+| Trading signals/recommendations | Regulatory risk; outside product scope |
+| Portfolio tracking | Separate product category |
+| Technical analysis/charts | Different use case; fundamental analysis only |
+| Social sentiment from Twitter/Reddit | Unreliable, high noise |
 
 ---
 
@@ -56,29 +54,25 @@ A system that takes a **topic + time period** and returns **individual earnings 
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Topic→Industry matching via GICS | Standard classification, maps well to financial data | Pending research |
-| Individual summaries per stock | Better for comparison and focused analysis | — |
-| Filter: market cap, PE, PB, price | Most common screening criteria for retail investors | — |
-| Structured data only (no raw PDF parsing) | Fastest path to MVP, reliable data quality | — |
+| Topic→Industry matching via GICS | Standard classification, maps well to financial data | ✓ Confirmed — works well for MVP |
+| Individual summaries per stock | Better for comparison and focused analysis | ✓ Confirmed — enables granular analysis |
+| Filter: market cap, PE, PB, price | Most common screening criteria for retail investors | ✓ Confirmed — sufficient for MVP |
+| Structured data only (no raw PDF parsing) | Fastest path to MVP, reliable data quality | ✓ Confirmed |
+| Dual TTL cache (1hr prices, 24hr fundamentals) | Different data freshness requirements | ✓ Confirmed — works well |
+| yfinance primary, FMP fallback | yfinance ~99% coverage, FMP fills gaps | ✓ Confirmed |
+| GPT-4o-mini default, Claude alternative | Cost efficiency + flexibility | ✓ Confirmed |
+| Substring matching for keywords (no fuzzy) | MVP scope, good enough accuracy | ✓ Confirmed |
 
 ---
 
-## Evolution
+## Context
 
-This document evolves at phase transitions and milestone boundaries.
-
-**After each phase transition** (via `/gsd:transition`):
-1. Requirements invalidated? → Move to Out of Scope with reason
-2. Requirements validated? → Move to Validated with phase reference
-3. New requirements emerged? → Add to Active
-4. Decisions to log? → Add to Key Decisions
-5. "What This Is" still accurate? → Update if drifted
-
-**After each milestone** (via `/gsd:complete-milestone`):
-1. Full review of all sections
-2. Core Value check — still the right priority?
-3. Audit Out of Scope — reasons still valid?
-4. Update Context with current state
+**Shipped:** v1.0 MVP (2026-03-26) — all 25 requirements delivered
+**Code:** ~3100 LOC Python
+**Stack:** Python, FastAPI, uvicorn, Docker, yfinance, GPT-4o-mini/Claude
+**Repository:** https://github.com/Zoettt/tradingStrategy_reading
+**Git tag:** v1.0
 
 ---
-*Last updated: 2026-03-25 after initialization*
+
+*Last updated: 2026-03-26 after v1.0 milestone*
